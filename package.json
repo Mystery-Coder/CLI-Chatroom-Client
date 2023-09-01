@@ -1,6 +1,6 @@
 {
 	"name": "cli_chatroom_client",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "CLI ChatRoom Client hosted as an npm package",
 	"main": "client.js",
 	"type": "module",
