@@ -16,7 +16,7 @@
 		"clichat": "client.js"
 	},
 	"repository": {
-		"url": "",
+		"url": "https://github.com/Mystery-Coder/CLI-Chatroom-Client",
 		"type": "git"
 	}
 }

@@ -27,6 +27,7 @@ rl.question("What is your name ? ", function (name) {
 		if (msg === "EXITOUT") {
 			socket.emit("user-exit", name);
 			console.log("EXITING");
+			rl.close();
 		}
 		socket.emit("message", `${name}: ` + msg);
 	});
@@ -38,8 +39,14 @@ rl.question("What is your name ? ", function (name) {
 			if (msg === "EXITOUT") {
 				socket.emit("user-exit", name);
 				console.log("EXITING");
+				rl.close();
 			}
 			socket.emit("message", `${name}: ` + msg);
 		});
 	});
+});
+
+rl.on("close", function () {
+	console.log("\nBYE BYE !!!");
+	process.exit(0);
 });
