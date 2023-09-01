@@ -1,13 +1,13 @@
 {
 	"name": "cli_chatroom_client",
-	"version": "1.0.0",
+	"version": "1.0.2",
 	"description": "CLI ChatRoom Client hosted as an npm package",
 	"main": "client.js",
 	"type": "module",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "mystery-coder",
+	"author": "",
 	"license": "ISC",
 	"dependencies": {
 		"socket.io-client": "^4.7.2"
@@ -16,7 +16,7 @@
 		"clichat": "client.js"
 	},
 	"repository": {
-		"url": "https://github.com/Mystery-Coder/CLI-Chatroom-Client",
+		"url": "",
 		"type": "git"
 	}
 }
