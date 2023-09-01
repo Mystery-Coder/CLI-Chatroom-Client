@@ -1,2 +1,6 @@
 # CLI-Chatroom-Client
-Client for a cli chatroom
+Client for a cli chatroom, where web socket server is hosted at glitch.com
+Client is hosted as an npm package
+
+## Installation
+```npm install cli_chatroom_client -g```
