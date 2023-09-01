@@ -7,7 +7,7 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
-	"author": "",
+	"author": "mystery-coder",
 	"license": "ISC",
 	"dependencies": {
 		"socket.io-client": "^4.7.2"
@@ -16,7 +16,7 @@
 		"clichat": "client.js"
 	},
 	"repository": {
-		"url": "",
+		"url": "https://github.com/Mystery-Coder/CLI-Chatroom-Client",
 		"type": "git"
 	}
 }
