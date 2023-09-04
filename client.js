@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { io } from "socket.io-client";
-
+import chalk from "chalk";
 const socket = io("https://towering-glistening-radio.glitch.me/");
 let NAME;
 import readline from "readline";
@@ -9,13 +9,21 @@ const rl = readline.createInterface({
 	output: process.stdout,
 });
 
-function displayMessages(messages) {
+function displayMessages(messages, name) {
 	console.clear(); //Clears console
 	for (let i = 0; i < messages.length; i++) {
-		console.log(messages[i]);
+		let msgObj = messages[i];
+
+		let msg = msgObj["msg"];
+		let msg_name = msgObj["name"];
+		if (msg_name === name) {
+			//same user's msg
+			console.log(chalk.green(msg));
+		} else if (msg_name !== name) {
+			console.log(chalk.yellow(msg));
+		}
 	}
 }
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 console.log("Enter message EXITOUT to exit chatroom");
 rl.question("What is your name ? ", function (name) {
@@ -27,17 +35,17 @@ rl.question("What is your name ? ", function (name) {
 		if (msg === "EXITOUT") {
 			rl.close();
 		}
-		socket.emit("message", `${name}: ` + msg);
+		socket.emit("message", { msg: `${name}: ` + msg, name });
 	});
 	socket.on("new-message", (msg) => {
 		messages.push(msg);
-		displayMessages(messages);
+		displayMessages(messages, name);
 
 		rl.question("Enter message: ", function (msg) {
 			if (msg === "EXITOUT") {
 				rl.close();
 			}
-			socket.emit("message", `${name}: ` + msg);
+			socket.emit("message", { msg: `${name}: ` + msg, name });
 		});
 	});
 });
